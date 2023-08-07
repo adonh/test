@@ -10,9 +10,10 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 	var queryOptions = {
-		// Define the CSV data columns
-    	csvColumns: ['string', 'number', 'number', 'number'],
-		// This should be false if your CSV file doesn't have a header 
+    	csvColumns: ['string', 'number', 'number', 'string',
+			    'number','number','number','number','number','number','number','number','number','number',
+		    'string','string',
+		    'string','string','string','string','string','string','string','string','string','number'],
     	csvHasHeader: true,
 			  sendMethod: 'auto'
 	}
@@ -30,7 +31,7 @@ function handleQueryResponse(response) {
     }
 
     var data = response.getDataTable();
-    var chart = new google.visualization.ColumnChart(document.getElementById('csv-div'));
+    var chart = new google.visualization.ColumnChart(document.getElementById('csv_div'));
 	chart.draw(data);
     document.getElementById("debug").innerHTML = response; //data.toJSON();
 
@@ -41,7 +42,7 @@ function handleQueryResponse(response) {
 
   <body>
     <!--Div that will hold the pie chart-->
-    <div id="csv-div"></div>
+    <div id="csv_div"></div>
     <div id="debug"></div>
   </body>
 </html>
